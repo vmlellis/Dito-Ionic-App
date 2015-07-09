@@ -1,0 +1,41 @@
+<ion-view view-title="{{viewtitle}}" class="stable-bg">
+  <form name="aForm" novalidate="" ng-submit="aForm.$valid && signIn(aForm, data)">
+    <ion-content>
+      <div class="padding sign_logo">
+        <img src="img/emaxter_splash.png" height="100px">
+      </div>
+
+      <div class="list">
+      
+        <input-validation
+          ng-repeat="item in inputs"
+          value="{{item.value}}" name="{{item.name}}" 
+          form="aForm" model="data"
+          inline="false" required="item.required"
+          type="{{item.type}}"
+          placeholder="{{item.placeholder}}"
+          icon="{{item.icon}}">
+        </input-validation>
+
+      </div>
+
+
+      <div class="padding buttons-signin">
+        <a class="waves-effect waves-light mui-btn mui-btn-default mui-btn-primary button-block mui-btn-raised" ng-click="cadastrar()">
+          Cadastrar
+        </a>
+
+      </div>
+
+
+    </ion-content>
+
+
+    <button class="bar bar-footer bar-balanced waves-effect waves-light" ng-click="submit()">
+      <div class="title"><i class="icon ion-log-in"></i> Entrar</div>
+    </button>
+
+  </form>
+
+
+</ion-view>

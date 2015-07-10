@@ -1,4 +1,4 @@
-/* Empty. Add your own CSS if you like */
+
 .startup .sign_logo img {
   position:absolute;
   top:0;
@@ -13,4 +13,43 @@
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
+}
+
+.btn i.icon {
+  font-size: 1.1rem;
+}
+
+/*.login-form .senha label {
+  padding-bottom: 15px;
+}*/
+
+.item-input.input-field {
+  padding-top: 20px;
+  padding-bottom: 12px;
+}
+
+.item-input.input-field label {
+  top: 26px;
+}
+
+.item-input.input-field label.active {
+  top: 32px;
+}
+
+.fb-button {
+  margin-top: 15px;
+}
+
+.bar-image {
+  margin-right: 8px;
+}
+
+.div-image {
+  float: left;
+  border-right: solid 1px #616161;
+  margin-right: 8px;
+}
+
+.register-modal {
+  height: 348px;
 }

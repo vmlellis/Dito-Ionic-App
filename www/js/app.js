@@ -7,6 +7,8 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('ditoIonicApp', [
   'ionic', 
+  'ngCordova',
+  'directives',
   'controllers', 
   'services',
 ])
@@ -23,6 +25,7 @@ angular.module('ditoIonicApp', [
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
+
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
@@ -43,7 +46,9 @@ angular.module('ditoIonicApp', [
   }, 101);
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+  $ionicConfigProvider.navBar.alignTitle('left');
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -51,7 +56,7 @@ angular.module('ditoIonicApp', [
   // Each state's controller can be found in controllers.js
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/startup');
+  $urlRouterProvider.otherwise('/login');
 
   $stateProvider
 
@@ -60,8 +65,15 @@ angular.module('ditoIonicApp', [
     cache: false,
     templateUrl: 'templates/startup/index.html',
     controller: 'StartupCtrl'
-  });
+  })
 
+  .state('login', {
+    url: '/login',
+    params: { email: null },
+    cache: false,
+    templateUrl: 'templates/login/index.html',
+    controller: 'LoginCtrl'
+  });
   
 
 });

@@ -1,0 +1,64 @@
+<ion-modal-view class="register-modal">
+  <ion-header-bar class="bar bar-header bar-dark bar-dark-dark">
+    <h1 class="title" ng-bind-html="register_viewtitle"></h1>
+    <button class="button button-clear icon icon-right ion-close-circled" ng-click="cancelRegisterUserModal()"></button>
+  </ion-header-bar>
+
+  <form name="aForm" novalidate="" ng-submit="aForm.$valid && registerUser(user, aForm)">
+    <ion-content>
+
+      <div class="list">
+
+        <input-validation
+          value="Nome" name="nome" 
+          form="aForm" model="user"
+          inline="false" required="item.required"
+          type="text"
+          placeholder=""
+          icon="icon ion-email placeholder-icon">
+        </input-validation>
+
+        <input-validation
+          value="E-mail" name="email" 
+          form="aForm" model="user"
+          inline="false" required="item.required"
+          type="text"
+          placeholder=""
+          icon="icon ion-email placeholder-icon">
+        </input-validation>
+
+        <input-validation
+          value="Senha" name="password" 
+          form="aForm" model="user"
+          inline="false" required="item.required"
+          type="password"
+          placeholder="Digite a senha"
+          icon="icon ion-lock-combination placeholder-icon">
+        </input-validation>
+        
+      </div>
+
+      <div class="padding right">
+        <a class="waves-effect waves-light btn btn-large green accent-4 ">
+          OK
+        </a>
+      </div>
+
+    </ion-content>
+
+
+
+  <!-- <div class="tabs padding tab-button" style="height:auto;">
+    <button class="button button-block button-balanced" ng-click="submit()">{{modal.action == "edit" ? "Alterar" : "Criar"}}</button>
+  </div> -->
+
+<!--     <div id="floating-button" class="padding right floating" ng-init="animateFloatingButton()">
+      <button 
+        class="mui-btn mui-btn-floating btn btn-floating btn-large waves-effect waves-circle waves-light green darken-4 z-depth-2 secondary-content" 
+        ng-click="submit()">
+          <i class="icon ion-android-arrow-dropright"></i>
+      </button>
+    </div> -->
+  </form>
+
+</ion-modal-view>

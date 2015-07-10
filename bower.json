@@ -3,5 +3,11 @@
   "private": "true",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.0.0"
+  },
+  "dependencies": {
+    "ngCordova": "~0.1.17-alpha",
+    "materialize": "~0.97.0",
+    "jquery": "~2.1.4",
+    "fontawesome": "~4.3.0"
   }
 }

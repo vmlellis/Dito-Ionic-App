@@ -1,0 +1,23 @@
+<div class="item item-input input-field" ng-class="{ 'has-error' : !hideValidation && form[name].$invalid && form.$submitted}">
+  
+
+
+  <!-- <span class="input-label" ng-show="inline || false">{{value}}</span> -->
+  <i ng-show="icon" ng-class="icon" class="prefix"></i>
+  <input id="{{name}}" name="{{name}}" type="{{type || 'text'}}" ng-model="model[name]" ui-validate="validations" ng-required="required" ng-readonly="readonly" ng-class="inputClass">
+  <label for="{{name}}">{{value}}</label>
+</div>
+
+<div class="form-errors" 
+  ng-show="!hideValidation && form.$submitted" 
+  ng-messages="form[name].$error" 
+  ng-messages-include="templates/shared/form-errors.html"
+></div>
+
+
+<!-- <div class="item item-input input-field">
+  <i class="icon ion-email placeholder-icon prefix">&nbsp;&nbsp;&nbsp;</i>
+  <input id="icon_prefix" name="name" type="text">
+  <label for="icon_prefix">First Name</label>
+</div>
+ -->

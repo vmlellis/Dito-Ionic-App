@@ -1,6 +1,16 @@
 angular.module('controller.startup', [])
 .controller('StartupCtrl', function(
-  $scope
+  $scope,
+  $state,
+  $timeout
 ) {
+
+  var goToLogin = function() {
+    $state.go("login");
+  }
+
+  $timeout( function() { 
+    goToLogin();
+  }, 1000);
 
 })

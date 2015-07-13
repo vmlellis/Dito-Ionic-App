@@ -53,3 +53,96 @@
 .register-modal {
   height: 348px;
 }
+
+.bar-dark {
+  border-color: #444444 !important;
+}
+
+td-cards {
+  display: block;
+}
+
+td-card {
+  position: absolute;
+  left: 50%;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  margin-left: -150px;
+  width: 300px;
+  height: 350px;
+
+  border: 1px solid #999;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 6px;
+}
+
+td-card .image {
+  position: relative;
+  text-align: center;
+  height: 220px;
+  margin-bottom: 10px;
+}
+
+td-card img {
+  max-width: 100%;
+  border-radius: 6px;
+  max-height: 220px;
+}
+
+
+.fade {
+  -webkit-transition: 0.2s opacity linear;
+  transition: 0.2s opacity linear;
+  opacity: 0;
+}
+
+.card.tinder {
+  box-shadow: none;
+  padding-top: 0px;
+  background-color: transparent;
+}
+
+.td-card .title {
+  height: 20px;
+  padding: 5px;
+  padding-top: 0px;
+  padding-bottom: 35px;
+  /*line-height: 0px;*/
+  color: #444;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+td-card .accepted, td-card .declined {
+  height: 0px;
+  position: relative;
+  top: -150px;
+  font-size: 80px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+td-card .button-accept, td-card .button-decline {
+  border-width: 1px 1px 1px 1px !important;
+}
+
+td-card .button-accept {
+  margin-left: 10px;
+}
+
+td-card .button-decline {
+  margin-right: 10px;
+}
+
+
+// Toast
+.toast-bottom-center {
+  margin-bottom: 20px;
+}
+
+#toast-container > div {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

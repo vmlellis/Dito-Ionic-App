@@ -8,6 +8,9 @@
 angular.module('ditoIonicApp', [
   'ionic', 
   'ngCordova',
+  'ionic.contrib.ui.tinderCards',
+  'ngAnimate',
+  'toastr',
   'directives',
   'controllers', 
   'services',
@@ -46,9 +49,11 @@ angular.module('ditoIonicApp', [
   }, 101);
 })
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, toastrConfig) {
 
   $ionicConfigProvider.navBar.alignTitle('left');
+
+  angular.extend(toastrConfig, { positionClass: 'toast-bottom-center' });
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -56,7 +61,7 @@ angular.module('ditoIonicApp', [
   // Each state's controller can be found in controllers.js
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/startup');
 
   $stateProvider
 
@@ -73,6 +78,25 @@ angular.module('ditoIonicApp', [
     cache: false,
     templateUrl: 'templates/login/index.html',
     controller: 'LoginCtrl'
+  })
+
+  .state('eventmenu', {
+    url: "/event",
+    abstract: true,
+    templateUrl: "templates/event_menu/menu.html",
+    controller: 'EventMenuCtrl'
+  })
+
+  .state('eventmenu.cards', {
+    url: '/cards',
+    cache: false,
+    params: { email: null },
+    views: {
+      'menuContent': {
+        templateUrl: "templates/cards/index.html",
+        controller: 'CardsCtrl'
+      }
+    }
   });
   
 

@@ -1,0 +1,41 @@
+<ion-view view-title="{{viewtitle}}" class="stable-bg" ng-init="init()">
+
+  <ion-content>
+    
+    <td-cards>
+      <td-card ng-repeat="card in cards" 
+        on-destroy="cardDestroyed(card)" 
+        on-transition-left="cardTransitionLeft(card)" 
+        on-transition-right="cardTransitionRight(card)" 
+        on-partial-swipe="cardPartialSwipe(card, amt)" 
+        on-snap-back="cardSnapBack(card)">
+        
+          <div class="card tinder">
+            <div class="card-body">
+              <div class="title">
+                {{card.title}}
+              </div>
+              <div class="image">
+                <img ng-src="{{card.image}}">
+                <div class="accepted" ng-show="showAccepted">
+                  <i class="icon fa fa-check-circle-o balanced"></i>
+                </div>
+                <div class="declined" ng-show="showDeclined">
+                  <i class="icon fa fa-times-circle-o assertive"></i>
+                </div>
+              </div>
+              <div class="button-bar">
+                <button class="button button-decline assertive" ng-click="decline(card)">
+                  <i class="button button-clear button-assertive button-icon icon ion-close-circled"></i>
+                </button>
+                <button class="button button-accept" ng-click="accept(card)">
+                  <i class="button button-clear button-balanced button-icon icon ion-checkmark-circled"></i>
+                </button>
+              </div>
+            </div>
+        
+      </td-card>
+    </td-cards>
+    
+  </ion-content>
+</ion-view>

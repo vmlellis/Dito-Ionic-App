@@ -8,6 +8,8 @@
     "ngCordova": "~0.1.17-alpha",
     "materialize": "~0.97.0",
     "jquery": "~2.1.4",
-    "fontawesome": "~4.3.0"
+    "fontawesome": "~4.3.0",
+    "ionic-contrib-tinder-cards": "*",
+    "angular-toastr": "~1.4.1"
   }
 }

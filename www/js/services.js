@@ -1,1 +1,4 @@
-angular.module('services', ['service.utilService'])
+angular.module('services', [
+  'service.utilService',
+  'service.cardService'
+])

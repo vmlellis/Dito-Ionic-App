@@ -3,13 +3,15 @@ angular.module('controller.login', [])
   function(
     $scope,
     $ionicModal,
-    utilService
+    utilService,
+    toastr
   ) 
 {
 
   $scope.viewtitle = utilService.getTitle("Login");
   $scope.register_viewtitle = utilService.getTitle("Cadastrar Usuário");
 
+toastr.success("teste");
 
   $scope.inputs = [
     {

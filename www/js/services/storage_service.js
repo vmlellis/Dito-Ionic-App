@@ -15,4 +15,32 @@ angular.module('service.storageService', [])
       return JSON.parse($window.localStorage[key] || '{}');
     }
   }
+}])
+
+.factory('$preferences', ['$window', function($window) { 
+  return {
+    get: function(key, callbackSuccess, callbackError) {
+      if (ionic.Platform.isAndroid() || ionic.Platform.isIOS()) {
+        var prefs = $window.plugins.appPreferences;
+        prefs.fetch(callbackSuccess, callbackError, key);
+      }
+      else {
+        callbackError();
+      }
+    },
+    set: function(key, value) {
+      if (ionic.Platform.isAndroid() || ionic.Platform.isIOS()) {
+        console.log(key + " => " + value);
+        var prefs = $window.plugins.appPreferences;
+        prefs.store( 
+          function() {
+            console.log("sucesso");
+          }, function(error) {
+            console.log("erro");
+          },
+          key, value
+        );
+      }
+    }
+  }
 }]);

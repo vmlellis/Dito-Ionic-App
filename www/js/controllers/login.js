@@ -4,10 +4,13 @@ angular.module('controller.login', [])
     $scope,
     $ionicModal,
     $state,
+    $preferences,
     utilService,
-    userService
+    userService,
+    DitoService
   ) 
 {
+
 
   userService.update();
 
@@ -75,6 +78,18 @@ angular.module('controller.login', [])
       return;
     }
     
+    $window.dito.identify({
+      id: dito.Helpers.sha1(user.email),
+      name: user.name,
+      email:user.email,
+    });
+
+    $window.dito.track({
+      action: 'logou',
+      data: { }
+    });
+
+    $preferences.set("email", email);
     utilService.showNativeToast("Logado com sucesso!");
     $state.go("eventmenu.cards", { email: email });
     
@@ -83,6 +98,7 @@ angular.module('controller.login', [])
   $scope.registerUser = function(form, data) {
     newUser = { email: data.email, name: data.name, password: data.password };
     userService.addUser(newUser);
+    $scope.cancelRegisterUserModal();
   };
 
 

@@ -3,10 +3,12 @@ angular.module('controller.event_menu', [])
   function(
     $scope,
     $state,
+    $preferences,
     utilService
   ) 
 {
   $scope.exitApp = function() {
+    $preferences.set("email", "");
     utilService.showExitDialog();
   };
 

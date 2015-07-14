@@ -22,7 +22,7 @@ angular.module('controller.cards', [])
 
   var declineCard = function(card) {
     console.log("DECLINE");
-  }
+  };
 
   $scope.cards = [];
   $scope.cards.push(cardService.getFirstCard());

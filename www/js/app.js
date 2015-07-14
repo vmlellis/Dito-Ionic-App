@@ -8,13 +8,13 @@
 angular.module('ditoIonicApp', [
   'ionic', 
   'ngCordova',
-  'ionic.contrib.ui.tinderCards',
   'ngAnimate',
   'ngMessages',
+  'ionic.contrib.ui.tinderCards',
   'toastr',
   'directives',
   'controllers', 
-  'services',
+  'services'
 ])
 
 .constant('settings', {

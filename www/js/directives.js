@@ -82,10 +82,8 @@ angular.module('directives', ['ionic'])
 
 .directive('dito', function() {
   return {
-    restrict: 'A',
-    scope: {
-      id: '=dito'
-    },
+    restrict: 'E',
+    scope: {},
     link: function(scope, iElement, iAttrs) {
       (function(d,e,id){
         window.dito={};window._ditoTemp=[];
@@ -97,14 +95,19 @@ angular.module('directives', ['ionic'])
         return function(){_ditoTemp.push({methodName:m[i],params:arguments});}}(i)}
       })(document,'script','dito-jssdk');
 
-      console.log(dito);
+      dito.init({
+        apiKey: 'MjAxNC0wNS0yMCAxMTowMzoyMSAtMDMwMEdyYXBoIEFwaSBWMjQ0',
+        session: true
+      });
 
-      /*scope.$watch('id', function(newId, oldId) {
-        if (newId) {
-          console.log(newId);
-          ga('create', scope.id, { 'cookieDomain': 'none' });
-        }
-      });*/
+      //console.log(dito);
+
+      //scope.$watch('id', function(newId, oldId) {
+      //  if (newId) {
+      //    console.log(newId);
+      //    ga('create', scope.id, { 'cookieDomain': 'none' });
+      //  }
+      //});
     }
   };
 });

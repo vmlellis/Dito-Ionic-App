@@ -10,6 +10,7 @@ angular.module('ditoIonicApp', [
   'ngCordova',
   'ionic.contrib.ui.tinderCards',
   'ngAnimate',
+  'ngMessages',
   'toastr',
   'directives',
   'controllers', 
@@ -21,7 +22,7 @@ angular.module('ditoIonicApp', [
   appVersion: "0.0.1"
 })
 
-.run(function($ionicPlatform, $state) {
+.run(function($ionicPlatform, $state, utilService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -37,14 +38,7 @@ angular.module('ditoIonicApp', [
 
   $ionicPlatform.registerBackButtonAction(function(e){
     e.preventDefault();
-    if($state.current.name == "signin" || 
-        $state.current.name == "app.cards" ){
-      //utilService.showExitDialog();
-      return false;
-    }
-    else {
-      navigator.app.backHistory();
-    }
+    utilService.showExitDialog();
     return false;
   }, 101);
 })
@@ -52,6 +46,8 @@ angular.module('ditoIonicApp', [
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, toastrConfig) {
 
   $ionicConfigProvider.navBar.alignTitle('left');
+  $ionicConfigProvider.views.maxCache(0);
+  $ionicConfigProvider.views.swipeBackEnabled(false);
 
   angular.extend(toastrConfig, { positionClass: 'toast-bottom-center' });
 

@@ -1,5 +1,5 @@
 <ion-view view-title="{{viewtitle}}" class="stable-bg">
-  <form name="aForm" novalidate="" ng-submit="aForm.$valid && signIn(aForm, data)">
+  <form name="aForm" novalidate="" ng-submit="aForm.$valid && login(aForm, data)">
     <ion-content>
 
 
@@ -11,8 +11,8 @@
             <input-validation
               value="E-mail" name="email" 
               form="aForm" model="data"
-              inline="false" required="item.required"
-              type="text"
+              inline="false" required="true"
+              type="email"
               placeholder=""
               icon="icon ion-email placeholder-icon">
             </input-validation>
@@ -20,7 +20,7 @@
             <input-validation
               value="Senha" name="password" 
               form="aForm" model="data"
-              inline="false" required="item.required"
+              inline="false" required="true"
               type="password"
               placeholder="Digite a senha"
               icon="icon ion-lock-combination placeholder-icon">
@@ -34,12 +34,11 @@
               Cadastrar
             </a>
 
-            <a class="waves-effect waves-light btn btn-large green accent-4 right">
+            <button class="waves-effect waves-light btn btn-large green accent-4 right" ng-click="submit()">
               <i class="icon ion-chevron-right right"></i>
               Entrar
-            </a>
+            </button>
           </div>
-
 
           <a class="fb-button waves-effect waves-light button-block btn btn-large blue darken-3">
             <i class="icon fa fa-facebook-official left"></i>

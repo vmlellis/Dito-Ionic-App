@@ -1,8 +1,11 @@
 angular.module('controller.event_menu', [])
 .controller('EventMenuCtrl', 
   function(
-    $scope
+    $scope,
+    utilService
   ) 
 {
-  console.log("tabs");
+  $scope.exitApp = function() {
+    utilService.showExitDialog();
+  };
 })

@@ -38,7 +38,7 @@ angular.module('controller.cards', [])
 
   $scope.cardSnapBack = function(card) {
     console.log("snapBack");
-    $timeout( function(){ 
+    $timeout( function() { 
       $scope.showAccepted = false;
       $scope.showDeclined = false;
       canChangeLeft = true;

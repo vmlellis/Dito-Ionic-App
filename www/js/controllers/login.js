@@ -3,15 +3,12 @@ angular.module('controller.login', [])
   function(
     $scope,
     $ionicModal,
-    utilService,
-    toastr
+    utilService
   ) 
 {
 
   $scope.viewtitle = utilService.getTitle("Login");
   $scope.register_viewtitle = utilService.getTitle("Cadastrar Usuário");
-
-toastr.success("teste");
 
   $scope.inputs = [
     {
@@ -50,6 +47,14 @@ toastr.success("teste");
   $scope.openRegisterUserModal = function() {
     $scope.registerUserModal.show();
     $scope.user = {};
+  };
+
+  $scope.login = function(form, data) {
+    console.log("login");
+  };
+
+  $scope.registerUser = function(form, data) {
+    console.log("registerUser");
   };
 
 

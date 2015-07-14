@@ -11,6 +11,6 @@ angular.module('controller.startup', [])
 
   $timeout( function() { 
     goToLogin();
-  }, 1000);
+  }, 3000);
 
 })

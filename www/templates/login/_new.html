@@ -12,7 +12,7 @@
         <input-validation
           value="Nome" name="nome" 
           form="aForm" model="user"
-          inline="false" required="item.required"
+          inline="false" required="true"
           type="text"
           placeholder=""
           icon="icon ion-email placeholder-icon">
@@ -21,8 +21,8 @@
         <input-validation
           value="E-mail" name="email" 
           form="aForm" model="user"
-          inline="false" required="item.required"
-          type="text"
+          inline="false" required="true"
+          type="email"
           placeholder=""
           icon="icon ion-email placeholder-icon">
         </input-validation>
@@ -30,7 +30,7 @@
         <input-validation
           value="Senha" name="password" 
           form="aForm" model="user"
-          inline="false" required="item.required"
+          inline="false" required="true"
           type="password"
           placeholder="Digite a senha"
           icon="icon ion-lock-combination placeholder-icon">
@@ -39,9 +39,9 @@
       </div>
 
       <div class="padding right">
-        <a class="waves-effect waves-light btn btn-large green accent-4 ">
-          OK
-        </a>
+        <button class="waves-effect waves-light btn btn-large green accent-4" ng-click="submit()">
+          Cadastrar
+        </button>
       </div>
 
     </ion-content>

@@ -1,6 +1,10 @@
 angular.module('service.utilService', [])
 
-.factory('utilService', function($ionicPopup) {
+.factory('utilService', function(
+  $ionicPopup,
+  $ionicPlatform, 
+  $cordovaToast
+) {
 
   var confirmDialog = function(title, confirmCallback) {
     var confirmPopup = $ionicPopup.confirm({
@@ -43,6 +47,14 @@ angular.module('service.utilService', [])
 
       confirmDialog('Deseja sair da aplicação?', confirmCallback);
 
+    },
+
+    showNativeToast: function(msg) {
+      if (ionic.Platform.isAndroid() || ionic.Platform.isIOS()) {
+        $ionicPlatform.ready(function() {
+          $cordovaToast.show(msg, 'long', 'bottom');
+        });
+      }
     }
   };
 });

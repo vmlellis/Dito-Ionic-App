@@ -3,9 +3,16 @@ angular.module('controller.login', [])
   function(
     $scope,
     $ionicModal,
-    utilService
+    $state,
+    utilService,
+    userService
   ) 
 {
+
+  userService.update();
+
+  $scope.data = {};
+  $scope.user = {};
 
   $scope.viewtitle = utilService.getTitle("Login");
   $scope.register_viewtitle = utilService.getTitle("Cadastrar Usuário");
@@ -50,11 +57,32 @@ angular.module('controller.login', [])
   };
 
   $scope.login = function(form, data) {
-    console.log("login");
+
+    email = data.email;
+    password = data.password;
+
+    user = userService.getUser(email);
+
+    if (user == null) {
+      console.log("usuario nao existe");
+      utilService.showNativeToast("Usuário não existe!");
+      return;
+    }
+
+    if (user.password != password) {
+      console.log("senha incorreta");
+      utilService.showNativeToast("Senha incorreta!");
+      return;
+    }
+    
+    utilService.showNativeToast("Logado com sucesso!");
+    $state.go("eventmenu.cards", { email: email });
+    
   };
 
   $scope.registerUser = function(form, data) {
-    console.log("registerUser");
+    newUser = { email: data.email, name: data.name, password: data.password };
+    userService.addUser(newUser);
   };
 
 

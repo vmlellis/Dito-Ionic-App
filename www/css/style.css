@@ -184,11 +184,3 @@ label.item.valid-lr {
 .item.item-input.has-error {
   border-bottom-color: red;
 }
-
-/*.item.item-input.has-error .icon {
-  color: red;
-}
-
-.item.item-input.has-error label {
-  color: red;
-}*/

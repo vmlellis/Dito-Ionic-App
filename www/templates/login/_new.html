@@ -4,13 +4,13 @@
     <button class="button button-clear icon icon-right ion-close-circled" ng-click="cancelRegisterUserModal()"></button>
   </ion-header-bar>
 
-  <form name="aForm" novalidate="" ng-submit="aForm.$valid && registerUser(user, aForm)">
+  <form name="aForm" novalidate="" ng-submit="aForm.$valid && registerUser(aForm, user)">
     <ion-content>
 
       <div class="list">
 
         <input-validation
-          value="Nome" name="nome" 
+          value="Nome" name="name" 
           form="aForm" model="user"
           inline="false" required="true"
           type="text"

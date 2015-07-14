@@ -78,4 +78,33 @@ angular.module('directives', ['ionic'])
 
     }
   };
+})
+
+.directive('dito', function() {
+  return {
+    restrict: 'A',
+    scope: {
+      id: '=dito'
+    },
+    link: function(scope, iElement, iAttrs) {
+      (function(d,e,id){
+        window.dito={};window._ditoTemp=[];
+        dito.generateID=function(str){return'_dito_sha1_'+str;}
+        var m=['init','identify','alias','unalias','track'],s=d.createElement('script'),
+        x=d.getElementsByTagName(e)[0];s.type='text/javascript';s.async=true;s.id=id;
+        s.src='//storage.googleapis.com/dito/sdk.js';x.parentNode.insertBefore(s,x);
+        for(var i=0;i<m.length;i++){dito[m[i]]=function(i){
+        return function(){_ditoTemp.push({methodName:m[i],params:arguments});}}(i)}
+      })(document,'script','dito-jssdk');
+
+      console.log(dito);
+
+      /*scope.$watch('id', function(newId, oldId) {
+        if (newId) {
+          console.log(newId);
+          ga('create', scope.id, { 'cookieDomain': 'none' });
+        }
+      });*/
+    }
+  };
 });

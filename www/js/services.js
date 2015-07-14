@@ -1,4 +1,6 @@
 angular.module('services', [
+  'service.storageService',
   'service.utilService',
-  'service.cardService'
+  'service.cardService',
+  'service.userService'
 ])

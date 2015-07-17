@@ -3,5 +3,6 @@ angular.module('services', [
   'service.utilService',
   'service.cardService',
   'service.userService',
-  'service.DitoService'
+  'service.DitoService',
+  'service.DitoRestService'
 ])

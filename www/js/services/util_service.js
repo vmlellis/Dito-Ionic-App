@@ -3,7 +3,9 @@ angular.module('service.utilService', [])
 .factory('utilService', function(
   $ionicPopup,
   $ionicPlatform, 
-  $cordovaToast
+  $cordovaToast,
+  $preferences,
+  DitoService
 ) {
 
   var confirmDialog = function(title, confirmCallback) {
@@ -42,7 +44,24 @@ angular.module('service.utilService', [])
 
     showExitDialog: function() {
       var confirmCallback = function() {
-        ionic.Platform.exitApp();
+        if (ionic.Platform.isAndroid() || ionic.Platform.isIOS()) {
+          $preferences.get("email", 
+            function (email) {
+              if (email != "") {
+                DitoService.track("saiu", {});
+                $preferences.set("email", "");
+                ionic.Platform.exitApp();
+              }
+              else {
+                ionic.Platform.exitApp();
+              }
+            },
+            function() { 
+              ionic.Platform.exitApp();
+            }
+          );
+        }
+        
       }
 
       confirmDialog('Deseja sair da aplicação?', confirmCallback);

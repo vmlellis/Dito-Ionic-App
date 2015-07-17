@@ -6,7 +6,8 @@ angular.module('controller.cards', [])
     utilService,
     cardService,
     $timeout,
-    $stateParams
+    $stateParams,
+    DitoService
   ) 
 {
   $scope.viewtitle = utilService.getTitle("Cards");
@@ -18,10 +19,16 @@ angular.module('controller.cards', [])
 
   var acceptCard = function(card) {
     console.log("ACCEPT");
+    DitoService.track("aceitou-card", { 
+      titulo: card.title
+    });
   };
 
   var declineCard = function(card) {
     console.log("DECLINE");
+    DitoService.track("recusou-card", { 
+      titulo: card.title
+    });
   };
 
   $scope.cards = [];

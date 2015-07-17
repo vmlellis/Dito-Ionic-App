@@ -43,7 +43,22 @@ angular.module('ditoIonicApp', [
   }, 101);
 })
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, toastrConfig) {
+.config(function(
+  $stateProvider, 
+  $urlRouterProvider, 
+  $ionicConfigProvider, 
+  $httpProvider, 
+  toastrConfig
+) {
+
+  $httpProvider.defaults.useXDomain = true;
+  //$httpProvider.defaults.withCredentials = true;
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  $httpProvider.defaults.headers.common["Accept"] = "application/json;application/x-www-form-urlencoded;charset=utf-8";
+  $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
+  // $httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = 'Accept;Content-Type';
+
+
 
   $ionicConfigProvider.navBar.alignTitle('left');
   $ionicConfigProvider.views.maxCache(0);
@@ -86,7 +101,7 @@ angular.module('ditoIonicApp', [
   .state('eventmenu.cards', {
     url: '/cards',
     cache: false,
-    params: { email: null },
+    params: { email: null, reference: null },
     views: {
       'menuContent': {
         templateUrl: "templates/cards/index.html",

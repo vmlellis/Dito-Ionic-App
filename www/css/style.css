@@ -184,3 +184,10 @@ label.item.valid-lr {
 .item.item-input.has-error {
   border-bottom-color: red;
 }
+
+@media (max-width: 390px) {
+  .card-login .btn {
+    font-size: 14px;
+    padding: 0 1rem !important;
+  }
+}

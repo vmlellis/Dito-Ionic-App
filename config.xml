@@ -4,11 +4,12 @@
   <description>
         Um projeto para teste da integração da Dito
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
+  <author email="victor.lellis@dito.com.br" href="http://dito.com.br/">
       Victor Lellis
     </author>
   <content src="index.html"/>
-  <access origin="*"/>
+  <access origin="*" subdomains="true"/>
+  <allow-navigation href="*" />
   <preference name="webviewbounce" value="false"/>a
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
@@ -21,6 +22,9 @@
   </feature>
   <feature name="Toast">
     <param name="android-package" value="nl.xservices.plugins.Toast" />
+  </feature>
+  <feature name="MyPluginName">
+    <param name="android-package" value="com.phonegap.plugins.plugin.class" />
   </feature>
   <platform name="android">
     <splash src="resources/android/splash/drawable-land-ldpi-screen.png" density="land-ldpi"/>

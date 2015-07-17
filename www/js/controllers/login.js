@@ -7,9 +7,38 @@ angular.module('controller.login', [])
     $preferences,
     utilService,
     userService,
-    DitoService
+    DitoService,
+    DitoRestService
   ) 
 {
+
+  // DitoRestService.getUser("t1@t1", 
+  //   function(data) {
+  //     console.log(data);
+  //   }
+  // );
+
+  // DitoRestService.signup({
+  //   name: "T1",
+  //   email: "t1@t1",
+  //   data: {}
+  // }, function(obj) {
+  //   console.log("ok");
+  //   if (obj.data) {
+  //     console.log(obj.data.reference);
+
+  //     reference = obj.data.reference;
+  //     DitoRestService.track(reference, {
+  //       action: "teste-ionic2", data: {}
+  //     });
+  //   }
+  // });
+
+    // DitoRestService.track("234242423", {
+    //   action: "teste", data: {}
+    // });
+
+  //DitoRestService.track("t1@t1", "teste", {});
 
 
   userService.update();
@@ -78,16 +107,8 @@ angular.module('controller.login', [])
       return;
     }
     
-    $window.dito.identify({
-      id: dito.Helpers.sha1(user.email),
-      name: user.name,
-      email:user.email,
-    });
-
-    $window.dito.track({
-      action: 'logou',
-      data: { }
-    });
+    DitoService.identify(email, name, {});
+    DitoService.track("login", {});
 
     $preferences.set("email", email);
     utilService.showNativeToast("Logado com sucesso!");
@@ -96,8 +117,13 @@ angular.module('controller.login', [])
   };
 
   $scope.registerUser = function(form, data) {
-    newUser = { email: data.email, name: data.name, password: data.password };
+    console.log(data);
+    newUser = { email: data._email, name: data._name, password: data._password };
+    
+    DitoService.identify(newUser.email, newUser.name, {});
+
     userService.addUser(newUser);
+    utilService.showNativeToast("Registrado com sucesso!");
     $scope.cancelRegisterUserModal();
   };
 

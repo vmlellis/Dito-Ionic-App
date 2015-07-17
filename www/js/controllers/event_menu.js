@@ -4,15 +4,16 @@ angular.module('controller.event_menu', [])
     $scope,
     $state,
     $preferences,
-    utilService
+    utilService,
+    DitoService
   ) 
 {
   $scope.exitApp = function() {
-    $preferences.set("email", "");
     utilService.showExitDialog();
   };
 
   $scope.logout = function() {
+    DitoService.track("logout", {});
     $state.go("login");
   };
 })

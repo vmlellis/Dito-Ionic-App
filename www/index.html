@@ -3,6 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <!-- <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self' 'unsafe-inline' 'unsafe-eval' ws://localhost:35729 http://login.plataformasocial.com.br http://storage.googleapis.com http://*.google.com https://*.google.com http://*.facebook.com https://*.facebook.com http://*.facebook.net https://*.facebook.net;
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:35729 http://storage.googleapis.com http://*.google.com https://*.google.com http://*.facebook.com https://*.facebook.com http://*.facebook.net https://*.facebook.net"> -->
+
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'">
+
+
     <title></title>
 
     <!-- components css output -->
@@ -35,12 +43,16 @@
     <script src="lib/ionic-contrib-tinder-cards/ionic.tdcards.js"></script>
     <script src="lib/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
 
+    <!-- encryption libraries -->
+    <script src="js/lib/dito_helper_c.js"></script>
+
     <!-- services -->
     <script src="js/services/util_service.js"></script>
     <script src="js/services/card_service.js"></script>
     <script src="js/services/user_service.js"></script>
     <script src="js/services/storage_service.js"></script>
     <script src="js/services/dito_service.js"></script>
+    <script src="js/services/dito_rest_service.js"></script>
 
     <!-- controllers -->
     <script src="js/controllers/startup.js"></script>
@@ -54,7 +66,8 @@
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
   </head>
-  <body ng-app="ditoIonicApp">
+  <body ng-app="ditoIonicApp" ng-csp>
+    <!-- <dito></dito> -->
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
